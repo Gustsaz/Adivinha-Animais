@@ -244,12 +244,6 @@ button:hover {
   border: 2px solid #4a6a4a;
 }
 
-.animal-marker-img {
-  border: 3px solid #B00615;
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-
 @media (max-width: 768px) {
 
   body,
