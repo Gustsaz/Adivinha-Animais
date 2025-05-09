@@ -32,7 +32,7 @@ map.on('zoomend', () => {
 });
 
 function getIconSizeForZoom(zoom) {
-    const minSize = 20; 
+    const minSize = 10; 
     const zoomRange = map.getMaxZoom() - map.getMinZoom();
     const zoomLevel = zoom - map.getMinZoom();
     return maxSize - ((maxSize - minSize) * (zoomLevel / zoomRange));
