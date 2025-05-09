@@ -141,7 +141,7 @@ map.on('zoomend', () => {
       iconSize: [size, size],
       iconAnchor: [size / 2, size / 2],
       popupAnchor: [0, -size / 2],
-      className: 'animal-marker-img'
+      className: 'animal-icon'
     });
 
     marker.setIcon(newIcon);
@@ -178,7 +178,7 @@ function showAnimalOnMap(animal) {
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -size / 2],
-    className: 'animal-marker-img'
+    className: 'animal-icon'
   });
 
   const marker = L.marker(animal.coords, { icon }).addTo(map);
