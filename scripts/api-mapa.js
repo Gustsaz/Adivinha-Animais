@@ -32,11 +32,12 @@ map.on('zoomend', () => {
 });
 
 function getIconSizeForZoom(zoom) {
-    const minSize = 30;
-    const maxSize = 100;
+    const minSize = 30; // menor tamanho quando estiver com muito zoom (mais perto)
+    const maxSize = 100; // maior tamanho quando estiver com pouco zoom (mais longe)
     const zoomRange = map.getMaxZoom() - map.getMinZoom();
     const zoomLevel = zoom - map.getMinZoom();
-    return minSize + ((maxSize - minSize) * (zoomLevel / zoomRange));
+    // Inverte a proporção: quanto mais zoom, menor o tamanho
+    return maxSize - ((maxSize - minSize) * (zoomLevel / zoomRange));
 }
 
 function showAnimalOnMap(animal) {
@@ -55,7 +56,6 @@ function showAnimalOnMap(animal) {
     marker.bindPopup(animal.name);
     correctAnimalMarkers.push({ marker, animal });
 
-    // Ajusta a visualização para incluir o animal
     map.setView(animal.coords, zoom);
 }
 
