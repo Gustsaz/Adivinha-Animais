@@ -1,4 +1,4 @@
-﻿import { animals } from './animais.js';
+import { animals } from './animais.js';
 import { showAnimalOnMap } from './api-mapa.js';
 
 let shuffledAnimals = [];
@@ -139,6 +139,9 @@ function skipAnimal() {
 
   isSkipping = true;
 
+  currentAnimal = randomAnimal;
+  currentOfficialAnimal = randomAnimal;
+
   const imgElement = document.getElementById("animal-image");
 
   document.getElementById("animal-name").textContent = randomAnimal.name;
@@ -147,11 +150,14 @@ function skipAnimal() {
   document.getElementById("feedback").textContent = "";
   document.getElementById("answer").value = "";
 
+  showAnimalOnMap(randomAnimal.coords);
+
   imgElement.onload = () => {
     imgElement.classList.remove("fade-out");
     imgElement.classList.add("fade-in");
   };
 }
+
 
 function isCurrentlySkipping() {
   return isSkipping;
