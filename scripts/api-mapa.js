@@ -54,6 +54,8 @@ function showAnimalOnMap(animal) {
     const marker = L.marker(animal.coords, { icon }).addTo(map);
     marker.bindPopup(animal.name);
     correctAnimalMarkers.push({ marker, animal });
+
+    // Ajusta a visualização para incluir o animal
     map.setView(animal.coords, zoom);
 }
 
